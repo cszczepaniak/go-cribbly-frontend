@@ -67,6 +67,7 @@ function DevPage() {
             await newGame.mutateAsync({
               id: "",
               teams: [t1, t2],
+              kind: "prelim",
             });
           }}
         >
@@ -110,7 +111,6 @@ async function getGames(): Promise<GameModel[]> {
 
 async function createGame(game: GameModel): Promise<GameModel> {
   const { id, ...data } = game;
-  data.kind = "prelim";
   const resp: AxiosResponse<GameModel> = await axios.post(
     "https://luy8atxigb.execute-api.us-east-2.amazonaws.com/dev/games",
     data

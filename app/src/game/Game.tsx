@@ -37,6 +37,12 @@ export const Game = () => {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+    alert(
+      JSON.stringify({
+        winningTeam,
+        loserScore,
+      })
+    );
   };
 
   return (
@@ -61,12 +67,8 @@ export const Game = () => {
               transition ease-in-out
               focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
           >
-            <option selected={winningTeam === data?.teams[0]}>
-              {data?.teams[0]}
-            </option>
-            <option selected={winningTeam === data?.teams[1]}>
-              {data?.teams[1]}
-            </option>
+            <option>{data?.teams[0]}</option>
+            <option>{data?.teams[1]}</option>
           </select>
           <label className="mb-2 text-lg">Loser Score</label>
           <input
